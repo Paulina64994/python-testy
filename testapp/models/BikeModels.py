@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class ListBike(models.Model):
@@ -10,3 +11,13 @@ class ListBike(models.Model):
 
     def __str__(self):
         return self.nameBike
+
+    def is_expesive(self):
+        return self.price > 1000
+
+    def is_new(self):
+        return self.year >2010
+
+    def string_representation(self):
+        return f"{self.nameBike} from {self.year}"
+
